@@ -1,5 +1,7 @@
-import Link from 'next/link';
+
 import './globals.css';
+import Navbar from '@/components/Navbar';
+//import Link from 'next/link';
 
 
 export const metadata ={
@@ -10,13 +12,11 @@ export const metadata ={
 export default function RootLayout({children}){
   return(
     <html lang='en'>
-      <body className='font-sans'>
-        <nav className='bg-gray-900 text-white p-4 flex gap-6'>
-          <Link href="/">Home</Link>
-          <Link href="about">About</Link>
-          <Link href="contact">Contact</Link>
-        </nav>
+      
+      <body className='font-sans bg-black text-white'>
+        <Navbar/>
+        <main className='p-6'>{children}</main>
       </body>
     </html>
-  )
+  );
 }
