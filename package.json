@@ -3,17 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "cross-env PAYLOAD_CONFIG_PATH=./payload.config.js next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "payload": "set PAYLOAD_CONFIG_PATH=./payload.config.js && payload dev",
+    "debug-payload": "node -e \"console.log('Environment check'); console.log('Node version:', process.version); require('dotenv').config(); console.log('MongoDB URI:', process.env.DATABASE_URI || process.env.MONGODB_URI || 'Not found'); console.log('Payload Secret:', process.env.PAYLOAD_SECRET ? 'Exists' : 'Not found');\""
   },
   "dependencies": {
+    "@payloadcms/db-mongodb": "^3.37.0",
+    "@payloadcms/next": "^3.37.0",
+    "@payloadcms/payload-cloud": "^3.37.0",
+    "@payloadcms/richtext-lexical": "^3.37.0",
+    "@tailwindcss/typography": "^0.5.16",
     "beta_to_alpha": "file:",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0",
     "framer-motion": "^12.10.4",
+    "graphql": "^16.11.0",
     "next": "15.3.2",
+    "payload": "^3.37.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sharp": "^0.34.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
